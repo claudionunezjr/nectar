@@ -1,0 +1,29 @@
+@use 'color';
+@use 'media';
+@use 'spacing';
+
+.drawer-site-nav {
+    color: color.$brand-color-3;
+    font-size: x-large;
+    width: 100%;
+
+    a {
+        background-color: color.$background;
+        color: currentColor;
+        display: inline-block;
+        padding: 20px;
+        margin: 1px 0;
+        width: 100%;
+    }
+
+    @media (media.$min-med) {
+        display: flex;
+        padding: spacing.$container-padding;
+        justify-content: center;
+        text-align: center;
+
+        a {
+            color: color.$brand-color;
+        }
+    }
+}

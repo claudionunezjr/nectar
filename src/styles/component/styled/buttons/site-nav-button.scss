@@ -1,0 +1,24 @@
+@use 'color';
+@use 'fonts';
+@use 'media';
+
+$padding: 20px;
+
+.site-nav-button {
+    background-color: transparent;
+    border: none;
+    color: color.$brand-color;
+    font-size: fonts.$fs-large;
+    padding: $padding;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    svg {
+        display: block;
+    }
+
+    @media (media.$min-med) {
+        display: none;
+    }
+}

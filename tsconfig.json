@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "paths": {
+            "@darkkenergy/nectar": [
+                "@app/../../nectar/src/*"
+            ],
+            "@data/*": [
+                "data/*"
+            ],
+            "@app/*": [
+                "src/*"
+            ]
+        },
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "target": "esnext"
+    }
+}

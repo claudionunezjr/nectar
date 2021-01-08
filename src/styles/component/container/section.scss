@@ -1,0 +1,29 @@
+@use 'media';
+@use 'spacing';
+
+.content-container {
+    h2 {
+        margin-top: spacing.$distance--0;
+    }
+
+    * + * {
+        margin-top: spacing.$distance--0;
+    }
+
+    * + h3 {
+        margin-top: spacing.$distance--1;
+    }
+
+    p,
+    h2,
+    h3 {
+        padding-left: spacing.$section-padding;
+        padding-right: spacing.$section-padding;
+    }
+
+    @media (media.$min-med) {
+        h3 + * {
+            padding-left: spacing.$indent-padding;
+        }
+    }
+}

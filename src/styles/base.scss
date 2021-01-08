@@ -1,0 +1,38 @@
+@use 'media';
+@use 'reset';
+
+/*
+ * Use only a HTML selectors for each definition.
+ */
+
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    flex: 1 1 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+
+    @media (media.$min-med) {
+        font-size: 18px;
+    }
+}
+
+a {
+    // color: $primary-color;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}

@@ -1,0 +1,23 @@
+@use 'color';
+@use 'media';
+@use 'spacing';
+
+.site-nav {
+    color: color.$brand-color;
+    display: none;
+    font-size: large;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    a {
+        color: currentColor;
+        display: inline-block;
+        padding: spacing.$container-padding;
+        margin: 1px 0;
+    }
+
+    @media (media.$min-med) {
+        display: initial;
+    }
+}

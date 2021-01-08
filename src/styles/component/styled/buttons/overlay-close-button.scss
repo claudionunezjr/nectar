@@ -1,0 +1,19 @@
+@use 'color';
+@use 'fonts';
+@use 'spacing';
+
+.overlay-close-btn {
+    background-color: color.$brand-color-3;
+    border: none;
+    border-radius: 100%;
+    bottom: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+    color: color.$brand-color;
+    display: inline-flex;
+    font-size: fonts.$fs-med;
+    left: 50%;
+    padding: spacing.$distance--0;
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 300;
+}

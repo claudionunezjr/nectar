@@ -1,0 +1,22 @@
+@use 'color';
+@use 'fonts';
+@use 'spacing';
+
+.main {
+    align-items: center;
+    color: color.$brand-color;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    padding: spacing.$container-padding 0;
+    position: relative;
+
+    img {
+        padding-right: spacing.$container-padding;
+    }
+
+    h1 {
+        font-size: fonts.$fs-large;
+        text-transform: lowercase;
+    }
+}

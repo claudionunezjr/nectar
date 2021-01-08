@@ -1,0 +1,11 @@
+@use 'color';
+@use 'fonts';
+
+body {
+    background-color: color.$background;
+    font-size: fonts.$fs-root;
+}
+
+.app {
+    background-color: color.$brand-color-3;
+}

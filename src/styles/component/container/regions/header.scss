@@ -1,0 +1,52 @@
+@use 'color';
+@use 'fonts';
+@use 'media';
+@use 'spacing';
+
+.header {
+    align-items: center;
+    color: color.$brand-color;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: spacing.$container-padding 0;
+    position: relative;
+
+    img {
+        padding-right: spacing.$container-padding;
+    }
+
+    h1 {
+        align-items: center;
+        display: flex;
+        font-size: fonts.$fs-large;
+        margin-top: -100px;
+        text-transform: lowercase;
+    }
+
+    h2 {
+        font-size: fonts.$fs-base-med;
+        line-height: 1.5;
+        max-width: 560px;
+        padding: 20px 40px 0;
+        text-align: center;
+    }
+
+    @media (media.$min-small) {
+        img {
+            height: 100%;
+            width: 32%;
+        }
+
+        h1 {
+            font-size: fonts.$fs-med;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: fonts.$fs-base;
+            max-width: 640px;
+        }
+    }
+}
