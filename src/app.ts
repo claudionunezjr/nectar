@@ -7,6 +7,7 @@ import { App } from '@app/component/app';
 
 import '@app/styles/base.scss';
 
+console.log('Starting app...');
 const app = new Framework({
     rootNode: document.body,
     settings: {
@@ -21,3 +22,5 @@ app.load({
     },
     template: App
 }).render();
+
+document.dispatchEvent(new Event('render-event'));

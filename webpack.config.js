@@ -1,20 +1,22 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
 
 const CWD = process.cwd();
 const isProd = process.env.NODE_ENV === 'production';
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
 console.log('is prod', isProd);
 
 module.exports = {
-    devtool: isProd ? 'source-map' : 'eval-source-map',
-    devServer: {
-        port: 4001
-    },
+    // devtool: isProd ? 'source-map' : 'eval-source-map',
+    // devServer: {
+    //     port: 4001
+    // },
     entry: {
         app: './src/app.ts'
     },
-    mode: isProd ? 'production' : 'development',
+    // mode: isProd ? 'production' : 'development',
     module: {
         rules: [
             {
@@ -54,8 +56,8 @@ module.exports = {
         ]
     },
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: '[name].js',
+        path: path.join(__dirname, 'dist')
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -65,11 +67,29 @@ module.exports = {
                 viewport: 'width=device-width, initial-scale=1'
             },
             title: 'nectar'
+        }),
+        new PrerenderSPAPlugin({
+            indexPath: path.join(__dirname, 'dist', 'index.html'),
+            outputDir: path.join(__dirname, 'ssg'),
+            postProcess(renderedRoute) {
+                console.log('html', renderedRoute.html);
+                // renderedRoute.html = renderedRoute.html
+                //     .replace(/<script (.*?)>/g, `<script $1 defer>`)
+                //     .replace(`id="app"`, `id="app" data-server-rendered="true"`);
+
+                return renderedRoute;
+            },
+            renderer: new Renderer({
+                renderAfterDocumentEvent: 'render-event'
+            }),
+            // Required - Routes to render.
+            routes: ['/'],
+            // Required - The path to the webpack-outputted app to prerender.
+            staticDir: path.join(__dirname, 'dist')
         })
     ],
     resolve: {
         alias: {
-            '@darkkenergy/nectar': '@app/../../nectar/src',
             '@data': 'data',
             '@app': 'src'
         },

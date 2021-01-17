@@ -8,9 +8,6 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "paths": {
-            "@darkkenergy/nectar": [
-                "@app/../../nectar/src/*"
-            ],
             "@data/*": [
                 "data/*"
             ],
